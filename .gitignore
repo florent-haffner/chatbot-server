@@ -1,3 +1,9 @@
+# OS / IDE config
 .DS_Store
+.vscode/
+venv/
 
-venv/*
+# Model and data pre-processing
+model.*
+data.pickle
+checkpoint

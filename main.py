@@ -8,63 +8,76 @@ import tflearn
 import tensorflow
 import random
 import json
+import pickle
 
 with open("intents.json") as file:
     data = json.load(file)
 
-words = []
-labels = []
-docs_x = []
-docs_y = []
+# Try to open our pre-processed data into a pickle file
+try:
+    with open("data.pickle", "rb") as f:
+        words, labels, training, output = pickle.load(f)
 
-#
-# Getting all the shit out of our data
-#
-for intent in data["intents"]:
-    for pattern in intent["patterns"]:
-        wrds = nltk.word_tokenize(pattern)
-        words.extend(wrds)
-        docs_x.append(wrds)
-        docs_y.append(intent["tags"])
+# If there is no model, create it.
+except:
+    words = []
+    labels = []
+    docs_x = []
+    docs_y = []
 
-    if intent["tags"] not in labels:
-        labels.append(intent["tags"])
+    #
+    # Getting all the shit out of our data
+    #
+    for intent in data["intents"]:
+        for pattern in intent["patterns"]:
+            wrds = nltk.word_tokenize(pattern)
+            words.extend(wrds)
+            docs_x.append(wrds)
+            docs_y.append(intent["tags"])
+
+        if intent["tags"] not in labels:
+            labels.append(intent["tags"])
 
 
-#
-# Removing dupplicate element and stuff related
-#
-words = [stemmer.stem(w.lower()) for w in words if w != "?"]
-words = sorted(list(set(words)))
+    #
+    # Removing dupplicate element and stuff related
+    #
+    words = [stemmer.stem(w.lower()) for w in words if w != "?"]
+    words = sorted(list(set(words)))
 
-labels = sorted(labels)
+    labels = sorted(labels)
 
-training = []
-output = []
-out_empty = [0 for _ in range(len(labels))]
+    training = []
+    output = []
+    out_empty = [0 for _ in range(len(labels))]
 
-#
-# ENCODER
-#
-for x, doc in enumerate(docs_x):
-    bag = []
-    wrds = [stemmer.stem(w) for w in doc]
+    #
+    # ENCODER
+    #
+    for x, doc in enumerate(docs_x):
+        bag = []
+        wrds = [stemmer.stem(w) for w in doc]
 
-    for w in words:
-        if w in wrds:
-            bag.append(1)
-        else:
-            bag.append(0)
+        for w in words:
+            if w in wrds:
+                bag.append(1)
+            else:
+                bag.append(0)
 
-    output_row = out_empty[:]
-    output_row[labels.index(docs_y[x])] = 1
+        output_row = out_empty[:]
+        output_row[labels.index(docs_y[x])] = 1
 
-    training.append(bag)
-    output.append(output_row)
+        training.append(bag)
+        output.append(output_row)
 
-# Turned our list into np array to be able to work with TF
-training = np.array(training)
-output = np.array(output)
+    # Turned our list into np array to be able to work with TF
+    training = np.array(training)
+    output = np.array(output)
+
+    # Write our pre-processed data into a pickle file
+    with open("data.pickle", "wb") as f:
+        pickle.dump((words, labels, training, output), f)
+
 
 # Reset then set NN configuration
 tensorflow.reset_default_graph()
@@ -81,5 +94,11 @@ net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
 net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
-model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
+try:
+    model.load("model.tflearn")
+except:
+    model = tflearn.DNN(net)
+    model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
+    model.save("model.tflearn")
+
 
