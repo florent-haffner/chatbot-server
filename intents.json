@@ -13,8 +13,14 @@
             "context_set": ""
         },
         {
+            "tags": "hours",
+            "patterns": ["Wht's the time", "Do you have the hour?"],
+            "responses": ["Yup, let me see my watch. Oh I don't have one but it's xx am/pm"],
+            "context_set": ""
+        },
+        {
             "tags": "name",
-            "patterns": ["What is your name", "How should I call you", "whats your name?"],
+            "patterns": ["What is your name", "How should I call you", "who are you ?", "whats your name?"],
             "responses": ["I'm Jarvis", "My name is Jarvis.", "I'm Jarvis, the personnel assistant of Mr Florent HAFFNER."],
             "context_set": ""
         }
