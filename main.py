@@ -132,7 +132,7 @@ def chat():
 
             if result[results_index] > 0.7:
                 for tg in data['intents']:
-                    if tg['tags'] == tag:
+                    if tg['tag'] == tag:
                         responses = tg['responses']
                 print(random.choice(responses))
             else:
