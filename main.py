@@ -1,5 +1,8 @@
 import nltk
-nltk.download('punkt')
+try:
+    nltk.data.find('tokenizers/punkt')
+except:
+    nltk.download('punkt')
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 
@@ -28,15 +31,15 @@ except:
     #
     # Getting all the shit out of our data
     #
-    for intent in data["intents"]:
-        for pattern in intent["patterns"]:
+    for intent in data['intents']:
+        for pattern in intent['patterns']:
             wrds = nltk.word_tokenize(pattern)
             words.extend(wrds)
             docs_x.append(wrds)
-            docs_y.append(intent["tags"])
+            docs_y.append(intent['tag'])
 
-        if intent["tags"] not in labels:
-            labels.append(intent["tags"])
+        if intent['tag'] not in labels:
+            labels.append(intent['tag'])
 
 
     #
@@ -128,7 +131,7 @@ def chat():
             tag = labels[results_index]
 
             if result[results_index] > 0.7:
-                for tg in data["intents"]:
+                for tg in data['intents']:
                     if tg['tags'] == tag:
                         responses = tg['responses']
                 print(random.choice(responses))
