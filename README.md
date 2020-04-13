@@ -1,4 +1,4 @@
-# Jarvis-Assistant
+# Chatbot-Assistant
 
 This project is a simple chatbot, in the futur it will act like an assistant, like Siri or Jarvis in the Iron Man movies :p
 

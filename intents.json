@@ -9,13 +9,20 @@
         {
             "tag": "goodbye",
             "patterns": ["See you", "Cu", "Goodbye", "I am leaving", "Have a good day"],
-            "responses": ["Sad to see you go :'(", "Talk to you later", "Goodbye!"],
+            "responses": ["Sad to see you go :'(", "Talk to you later", "Goodbye!", "See you space cowboy."],
             "context_set": ""
         },
         {
             "tag": "help",
-            "patterns": ["Can you help me?", "what can you do", "send help please", "tell me What you can do"],
-            "responses": ["I can reach Florent for you, creating an appointment and follow some small discussion..."],
+            "patterns": [
+                "Can you help me?", "what can you do", "send help please", "tell me What you can do", "I need help"
+            ],
+            "responses": [
+                "I can reach Florent by Email (he is a Software developer), tell you linux joke and do some simple task...",
+                "Well Florent needed something to be contacted but definitely didn't want to have a form on his website so he build this. You can ask simple question and based on statistics I'll do my best to reach the proper data to gives you, it's called Machine Learning I think ;D",
+                "Sure, you can ask me to contact Florent (the developer that made this chatbot), ask some simple question or train me by giving me data, I'm hungry you know ?!",
+                "I'll try, what do you need ?"
+            ],
             "context_set": ""
         },
         {
@@ -25,15 +32,21 @@
             "context_set": ""
         },
         {
-            "tag": "interest_florent",
+            "tag": "need_developer",
             "patterns": [
-                "What is the speciality of this guy",
+                "Im looking for a developer", "I need a back-end dev", "I need a full-stack dev",
+                "I need help for my platform",
+                "I have issue on my SaaS plateform",
+                "What is the speciality of this developer",
                 "What did he develop",
-                "what this guy is good at?",
-                "what his good at"
+                "what this guy is good at?", "what is he doing?",
+                "what his good at", "I need a dev"
             ],
             "responses": [
-                "Florent is spending a lot of time on the back-end and the business side of an application. He likes to  work on data and algorithms right now ;)"],
+                "Florent is a Software developer, he's working a lot into business logic and data, I (this bot) don't know much about technical stuff but I can contact him if you want to...",
+                "Maybe Florent can help you. I (this bot) am not into technical stuff but I know Florent has interest in back-end, data engineering and stystem design, do you want me to contact him ?",
+                "Florent is spending a lot of time on the business side of an application. He likes to work on design but his favorite stuff are data and algorithms ;)"
+            ],
             "context_set": ""
         },
         {
@@ -45,30 +58,52 @@
                 "I would like to contact Mr Haffner",
                 "Great ! I'd like to contact him.",
                 "I need developer like this, contact him",
-                "Okay cool, let me contact him"
+                "contact him", "let me contact him",
+                "reach florent", "give me florent"
             ],
-            "responses": ["Okay, I can help you contact him, what's your email adress ?",
-                          "Okay, I've just send him a notification. About this, give me your email to let him answer back",
-                          "Yup, tell me your email following by a message. I'll send him ;)"],
+            "responses": [
+                "Okay, I can help you contact Florent, what's your email adress then what your issue in details ?",
+                "I can send a notification to Florent. Give me your email then a description of your issue to let him answer back.",
+                "Yup, give me your email followed by a message. I'll send him ;)"
+            ],
             "context_set": ""
         },
         {
-            "tag": "purpose",
-            "patterns": ["What's the purpose of life" ],
-            "responses": ["I'm not sure I understand, there is no purpose on living...",
-                          "For me : drinking an enjoying breathing air, just joking i'm a bot.",
-                          "I dunno but i like to help my Master to stay busy procrastinating or working on meaningful project =D"],
+            "tag": "philosophy",
+            "patterns": [ "What's the purpose of life" ],
+            "responses": ["I'm not sure I understand, because there is none.",
+                          "I like to drinking an breathing air, just joking I'm a bot.",
+                          "I dunno but i like to help my Master to stay busy procrastinating or working on meaningful project =)"],
+            "context_set": ""
+        },
+        {
+            "tag": "culture",
+            "patterns": [
+                "type of music", "tell me what kind of music",
+                "kind of movie do you look at", "do you look at tv?",
+                "what about cultural", "what do you enjoy outside of programming"
+            ],
+            "responses": ["Jazz and Metal, al lot of both !",
+                          "The perfect evening : a good old movie or whisky and jazz.",
+                          "I enjoy long boring and beautiful movie <3"
+            ],
             "context_set": ""
         },
         {
             "tag": "whoami",
-            "patterns": ["Who am I ?", "Whoami"],
-            "responses": ["I know for sure that you are an aggredate of carbon. \nBut it's not the only truth, please tell me what is it =)"],
+            "patterns": ["Who am I ?", "Whoami", "Tell me a joke", "Why so serioous?", "linux joke"],
+            "responses": [
+                "I know for sure that you are an aggredate of carbon. \nBut it's not the only truth.",
+                "It's a basic Linux joke. Ask this to your terminal lol"
+            ],
             "context_set": ""
         },
         {
-            "tag": "who",
-            "patterns": ["What is your name", "How should I call you", "who are you ?", "whats your name?"],
+            "tag": "who_what",
+            "patterns": [
+                "What is your name", "How should I call you", "who are you ?", "whats your name?",
+                "What the hell is this", "What the fuck ?"
+            ],
             "responses": ["I'm Jarvis. You are speaking to a bot, maybe I can healp you ?", "My name is Jarvis, I'm a bot created by Florent HAFFNER.", "I'm Jarvis, the personnel assistant of Mr Florent HAFFNER."],
             "context_set": ""
         }
