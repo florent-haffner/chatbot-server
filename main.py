@@ -13,6 +13,7 @@ import random
 import json
 import pickle
 
+# Open our base data
 with open("intents.json") as file:
     data = json.load(file)
 
@@ -105,6 +106,7 @@ except:
     model.save("model.tflearn")
 
 
+# Tokenise and pre-process input from the user to enter into NN
 def bag_of_words(s, words):
     bag = [0 for _ in range(len(words))]
 

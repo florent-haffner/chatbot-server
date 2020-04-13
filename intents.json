@@ -2,8 +2,8 @@
     "intents": [
         {
             "tag": "greetings",
-            "patterns": ["Hi", "How are you", "Hello there", "Is anyone there?", "Hello", "Good day", "Whats up"],
-            "responses": ["Hello", "Good to see you again", "Hi there", "How can I help?"],
+            "patterns": ["Hi", "Yo!", "How are you", "Hey!", "Hello there", "Is anyone there?", "Hello", "Good day", "Whats up"],
+            "responses": ["Hello", "Good to see you again", "Hello there", "Mister Kenoby!", "Hi, how can I help?"],
             "context_set": ""
         },
         {
@@ -13,15 +13,63 @@
             "context_set": ""
         },
         {
-            "tag": "hours",
-            "patterns": ["Wht's the time", "Do you have the hour?"],
-            "responses": ["Yup, let me see my watch. Oh I don't have one but it's xx am/pm"],
+            "tag": "help",
+            "patterns": ["Can you help me?", "what can you do", "send help please", "tell me What you can do"],
+            "responses": ["I can reach Florent for you, creating an appointment and follow some small discussion..."],
             "context_set": ""
         },
         {
-            "tag": "name",
+            "tag": "who_florent",
+            "patterns": ["How is Florent ?", "Hows Florent", "who the hell is this guy?"],
+            "responses": ["Florent is a Software developer based in Lyon, France. \nHis is basically the creator of this bot."],
+            "context_set": ""
+        },
+        {
+            "tag": "interest_florent",
+            "patterns": [
+                "What is the speciality of this guy",
+                "What did he develop",
+                "what this guy is good at?",
+                "what his good at"
+            ],
+            "responses": [
+                "Florent is spending a lot of time on the back-end and the business side of an application. He likes to  work on data and algorithms right now ;)"],
+            "context_set": ""
+        },
+        {
+            "tag": "contacting_florent",
+            "patterns": [
+                "I am looking for Florent",
+                "Can you help me contact Florent",
+                "Contact Haffner Florent",
+                "I would like to contact Mr Haffner",
+                "Great ! I'd like to contact him.",
+                "I need developer like this, contact him",
+                "Okay cool, let me contact him"
+            ],
+            "responses": ["Okay, I can help you contact him, what's your email adress ?",
+                          "Okay, I've just send him a notification. About this, give me your email to let him answer back",
+                          "Yup, tell me your email following by a message. I'll send him ;)"],
+            "context_set": ""
+        },
+        {
+            "tag": "purpose",
+            "patterns": ["What's the purpose of life" ],
+            "responses": ["I'm not sure I understand, there is no purpose on living...",
+                          "For me : drinking an enjoying breathing air, just joking i'm a bot.",
+                          "I dunno but i like to help my Master to stay busy procrastinating or working on meaningful project =D"],
+            "context_set": ""
+        },
+        {
+            "tag": "whoami",
+            "patterns": ["Who am I ?", "Whoami"],
+            "responses": ["I know for sure that you are an aggredate of carbon. \nBut it's not the only truth, please tell me what is it =)"],
+            "context_set": ""
+        },
+        {
+            "tag": "who",
             "patterns": ["What is your name", "How should I call you", "who are you ?", "whats your name?"],
-            "responses": ["I'm Jarvis", "My name is Jarvis.", "I'm Jarvis, the personnel assistant of Mr Florent HAFFNER."],
+            "responses": ["I'm Jarvis. You are speaking to a bot, maybe I can healp you ?", "My name is Jarvis, I'm a bot created by Florent HAFFNER.", "I'm Jarvis, the personnel assistant of Mr Florent HAFFNER."],
             "context_set": ""
         }
     ]
