@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Handle the Heroku server status to return to webapp
 @app.route( '/', methods=['GET'] )
 def getStatus():
-    return { 'chatbot_status': 'online' }
+    return { 'online_status': True }
 
 # Handle the message flow I/O chatbot and api response
 @app.route( '/message', methods=['POST'] )
