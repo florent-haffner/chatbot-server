@@ -14,4 +14,6 @@ Install dependancy on it -> `pip install -r requirements.txt`
 
 ## Bot usage
 
-`python main.py`
+`flash run`
+
+> Caution -> the current server is only for dev purpose

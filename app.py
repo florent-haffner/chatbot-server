@@ -1,8 +1,9 @@
 from flask import Flask, request
 from chatbot import chat
+
 app = Flask(__name__)
 
-# Handle the status to return to webapp
+# Handle the Heroku server status to return to webapp
 @app.route( '/status', methods=['GET'] )
 def getStatus():
     return { 'chatbot_status': 'online' }
