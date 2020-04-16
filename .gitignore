@@ -8,3 +8,6 @@ venv/
 model.*
 data.pickle
 checkpoint
+
+# Microframework shit
+__pycache__/

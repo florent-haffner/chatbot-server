@@ -1,3 +1,6 @@
+from flask import Flask
+app = Flask(__name__)
+
 import nltk
 try:
     nltk.data.find('tokenizers/punkt')
@@ -120,25 +123,18 @@ def bag_of_words(s, words):
 
     return np.array(bag)
 
-def chat():
+def chat(message):
     print("Start talking with the bot (type quit to stop) !")
-    while True:
-        inp = input("You: ")
-        if inp.lower() == "quit":
-            break
+    inp = message
+    results = model.predict([bag_of_words(inp, words)])
+    for result in results:
+        results_index = np.argmax(result)
+        tag = labels[results_index]
 
-        results = model.predict([bag_of_words(inp, words)])
-        for result in results:
-            results_index = np.argmax(result)
-            tag = labels[results_index]
-
-            if result[results_index] > 0.7:
-                for tg in data['intents']:
-                    if tg['tag'] == tag:
-                        responses = tg['responses']
-                print(random.choice(responses))
-            else:
-                print("I didn't get that, try again.")
-
-chat()
-
+        if result[results_index] > 0.7:
+            for tg in data['intents']:
+                if tg['tag'] == tag:
+                    responses = tg['responses']
+            return random.choice(responses)
+        else:
+            return "I didn't get that, try again."
