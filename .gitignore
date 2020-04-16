@@ -5,8 +5,8 @@ venv/
 .#*
 
 # Model and data pre-processing
-model.*
-data.pickle
+# model.*
+# data.pickle
 checkpoint
 
 # Microframework shit
