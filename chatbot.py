@@ -1,6 +1,3 @@
-from flask import Flask
-app = Flask(__name__)
-
 import nltk
 try:
     nltk.data.find('tokenizers/punkt')
@@ -45,7 +42,6 @@ except:
         if intent['tag'] not in labels:
             labels.append(intent['tag'])
 
-
     #
     # Removing dupplicate element and stuff related
     #
@@ -85,7 +81,6 @@ except:
     with open("data.pickle", "wb") as f:
         pickle.dump((words, labels, training, output), f)
 
-
 # Reset then set NN configuration
 tensorflow.reset_default_graph()
 
@@ -123,10 +118,14 @@ def bag_of_words(s, words):
 
     return np.array(bag)
 
+# Handle the interaction with ML model
 def chat(message):
-    print("Start talking with the bot (type quit to stop) !")
-    inp = message
-    results = model.predict([bag_of_words(inp, words)])
+    # Create a generic response that will mutate depending of the ML results
+    response_object = { 'message': '', 'error': False }
+    # Ask model about his toughts
+    results = model.predict([bag_of_words(message, words)])
+
+    # Comparaison then api response
     for result in results:
         results_index = np.argmax(result)
         tag = labels[results_index]
@@ -135,6 +134,10 @@ def chat(message):
             for tg in data['intents']:
                 if tg['tag'] == tag:
                     responses = tg['responses']
-            return random.choice(responses)
+            response_object['message'] = random.choice(responses)
+            return response_object
+
         else:
-            return "I didn't get that, try again."
+            response_object['message'] = "I didn't get that, try again."
+            response_object['error'] = True
+            return response_object
