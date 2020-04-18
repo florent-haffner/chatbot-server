@@ -121,7 +121,7 @@ def bag_of_words(s, words):
 # Handle the interaction with ML model
 def chat(message):
     # Create a generic response that will mutate depending of the ML results
-    response_object = { 'message': '', 'inError': False }
+    response_object = { 'messageResponse': '', 'inError': False }
     # Ask model about his toughts
     results = model.predict([bag_of_words(message, words)])
 
@@ -134,10 +134,10 @@ def chat(message):
             for tg in data['intents']:
                 if tg['tag'] == tag:
                     responses = tg['responses']
-            response_object['message'] = random.choice(responses)
+            response_object['messageResponse'] = random.choice(responses)
             return response_object
 
         else:
-            response_object['message'] = "I didn't get that, try again."
+            response_object['messageResponse'] = "I didn't get that, try again."
             response_object['inError'] = True
             return response_object
