@@ -14,12 +14,12 @@ import json
 import pickle
 
 # Open our base data
-with open("intents.json") as file:
+with open("./data/intents.json") as file:
     data = json.load(file)
 
 # Try to open our pre-processed data into a pickle file
 try:
-    with open("../data/data.pickle", "rb") as f:
+    with open("./data/data.pickle", "rb") as f:
         words, labels, training, output = pickle.load(f)
 
 # If there is no model, create it.
@@ -78,7 +78,7 @@ except:
     output = np.array(output)
 
     # Write our pre-processed data into a pickle file
-    with open("../data/data.pickle", "wb") as f:
+    with open("./data/data.pickle", "wb") as f:
         pickle.dump((words, labels, training, output), f)
 
 # Reset then set NN configuration
@@ -97,11 +97,11 @@ net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
 try:
-    model.load("../data/model.tflearn")
+    model.load("./data/model.tflearn")
 except:
     model = tflearn.DNN(net)
     model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-    model.save("../data/model.tflearn")
+    model.save("./data/model.tflearn")
 
 
 # Tokenise and pre-process input from the user to enter into NN
