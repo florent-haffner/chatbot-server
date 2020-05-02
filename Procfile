@@ -1,1 +1,2 @@
-web: gunicorn src/app:app
+resease: ./release.sh
+web: gunicorn app:app
