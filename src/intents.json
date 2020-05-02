@@ -15,7 +15,8 @@
         {
             "tag": "help",
             "patterns": [
-                "Can you help me?", "what can you do", "send help please", "tell me What you can do", "I need help"
+                "Can you help me?", "what can you do", "send help please", "tell me What you can do", "I need help",
+                "how can you help me ?"
             ],
             "responses": [
                 "I can reach Florent by Email (he is a Software developer), tell you linux joke and do some simple task...",
