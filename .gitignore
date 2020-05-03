@@ -10,4 +10,5 @@ venv/
 checkpoint
 
 # Microframework shit
+__pycache__/
 src/__pycache__/
