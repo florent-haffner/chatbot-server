@@ -1,5 +1,5 @@
 from flask import Flask, request
-from chatbot import chat
+from src.chatbot import chat
 
 app = Flask(__name__)
 
