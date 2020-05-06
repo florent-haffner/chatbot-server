@@ -121,7 +121,7 @@ def bag_of_words(s, words):
 # Handle the interaction with ML model
 def chat(message):
     # Create a generic response that will mutate depending of the ML results
-    response_object = { 'messageResponse': '', 'inError': False }
+    response_object = { 'messageResponse': '', 'inError': False, 'userId': 1 }
     # Ask model about his toughts
     results = model.predict([bag_of_words(message, words)])
 

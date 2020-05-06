@@ -11,6 +11,6 @@ def getStatus():
 # Handle the message flow I/O chatbot and api response
 @app.route( '/message', methods=['POST'] )
 def postMessageToChatbot():
-    request_body = request.json['messageRequested']
+    request_body = request.json['messageRequest']
     response = chat(request_body)
     return response
