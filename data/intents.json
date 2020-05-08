@@ -6,7 +6,7 @@
                 "automatic_greetings"
             ],
             "responses": [
-                "Welcome on this chatbot, which is in beta releases and designed by Florent HAFFNER. It can have a short conversation in English : you can ask for help, tell it why you need a developer or ask stuff about culture, philosophy or the architecture used for this entire software ;)"
+                "Welcome on this chatbot, which is in beta release and designed by Florent HAFFNER. It can have a short conversation in English : you can ask for help, tell it why you need a developer or ask stuff about culture, philosophy or the architecture used for this entire software ;)"
             ],
             "context_set": ""
         },
@@ -105,14 +105,14 @@
             "patterns": ["Who am I ?", "Whoami", "Tell me a joke", "Why so serioous?", "linux joke"],
             "responses": [
                 "I know for sure that you are an aggredate of carbon. \nBut it's not the only truth.",
-                "It's a basic Linux joke. Ask this to your terminal lol",
-                ""
+                "Whoami? It's a basic Linux joke. What, it's not funny ? Though we don't share the same life/exp/humor lol",
+                "Oh, something like whoami, what a joke ?! Ask it to your terminal haha"
             ],
             "context_set": ""
         },
         {
             "tag": "archi_website",
-            "patterns": [ "Give me information about this website", "Explain this webapp", "gimmi details about the architecture of this" ],
+            "patterns": [ "Give me information about this website", "Explain this webapp", "gimmi details about the architecture of this", "give me your software architecture", "website", "software" ],
             "responses": ["You connected to a Webapp using React Hooks, the entire UI is made with Functionnal paradigm and send request to a Java/Spring server (hexagonal architecture) wich can connect to this AI wich use Auto Encoder and the bag of words principle. Yup, nothing too fancy..."],
             "context_set": ""
         },
