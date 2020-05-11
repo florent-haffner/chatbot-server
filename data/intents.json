@@ -2,56 +2,41 @@
     "intents": [
         {
             "tag": "greetings",
-            "patterns": [
-                "automatic_greetings"
-            ],
+            "patterns": [ "automatic_greetings" ],
             "responses": [
                 "Welcome on this chatbot, which is in beta release and designed by Florent HAFFNER. It can have a short conversation in English : you can ask for help, tell it why you need a developer or ask stuff about culture, philosophy or the architecture used for this entire software ;)"
             ],
             "context_set": ""
         },
         {
-            "tag": "hello",
-            "patterns": ["Hi", "Yo!", "How are you", "Hey!", "Hello there", "Is anyone there?", "Hello", "Good day", "Whats up"],
-            "responses": ["Hello", "Good to see you again", "Hello there", "Mister Kenoby!", "Hi, how can I help?"],
-            "context_set": ""
-        },
-        {
             "tag": "goodbye",
-            "patterns": ["See you", "Cu", "Goodbye", "I am leaving", "Have a good day"],
+            "patterns": ["See you", "Goodbye", "I am leaving", "Have a good day"],
             "responses": ["Sad to see you go :'(", "Talk to you later", "Goodbye!", "See you space cowboy."],
             "context_set": ""
         },
         {
             "tag": "help",
             "patterns": [
-                "Can you help me?", "what can you do", "send help please", "tell me What you can do", "I need help",
-                "how can you help me ?"
+                "Can you help me?", "tell me What you can do", "how can you help me ?"
             ],
             "responses": [
-                "I can reach Florent by Email (he is a Software developer), tell you linux joke and do some simple task...",
                 "Well Florent needed something to be contacted but definitely didn't want to have a form on his website so he build this. You can ask simple question and based on statistics I'll do my best to reach the proper data to gives you, it's called Machine Learning I think ;D",
-                "Sure, you can ask me to contact Florent (the developer that made this chatbot), ask some simple question or train me by giving me data, I'm hungry you know ?!",
-                "I'll try, what do you need ?"
+                "Sure, you can ask me to contact Florent (the owner of this website and the creator of this chatbot), ask some simple question or train me by giving me data, I'm hungry you know ?!"
             ],
             "context_set": ""
         },
         {
             "tag": "who_florent",
-            "patterns": ["How is Florent ?", "Hows Florent", "who the hell is this guy?"],
-            "responses": ["Florent is a Software developer based in Lyon, France. \nHis is basically the creator of this bot."],
+            "patterns": ["How is Florent ?", "Who the hell is this Florent ?"],
+            "responses": ["He is a Software developer based in France. \nHis is basically the creator of this bot and has a passed into Chemical engineering and get back studying an other major few years back. You can't immagine how this knowledge help in Software engineering ;D"],
             "context_set": ""
         },
         {
             "tag": "need_developer",
             "patterns": [
-                "I'm looking for a developer", "I need a back-end dev", "I need a full-stack dev",
+                "I'm looking for a developer",
                 "I need help for my platform",
-                "I have issue on my SaaS plateform",
-                "What is the speciality of this developer",
-                "What did he develop",
-                "what this guy is good at?", "what is he doing?",
-                "what his good at", "I need a dev"
+                "I need a developer"
             ],
             "responses": [
                 "Florent is a Software developer, he's working a lot into business logic and data, I (this bot) don't know much about technical stuff but I can contact him if you want to...",
@@ -80,48 +65,21 @@
             "context_set": ""
         },
         {
-            "tag": "philosophy",
-            "patterns": [ "What's the purpose of life" ],
-            "responses": ["I'm not sure I understand, because there is none.",
-                          "I like to drinking an breathing air, just joking I'm a bot.",
-                          "I dunno but i like to help my Master to stay busy procrastinating or working on meaningful project =)"],
-            "context_set": ""
-        },
-        {
             "tag": "culture",
             "patterns": [
-                "type of music", "tell me what kind of music",
-                "kind of movie do you look at", "do you look at tv?",
-                "what about cultural", "what do you enjoy outside of programming"
+                "What about cultural stuffs ?", "What do you enjoy outside of programming ?"
             ],
-            "responses": ["Jazz and Metal, al lot of both !",
-                          "The perfect evening : a good old movie or whisky and jazz.",
-                          "I enjoy long boring and beautiful movie <3"
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "whoami",
-            "patterns": ["Who am I ?", "Whoami", "Tell me a joke", "Why so serioous?", "linux joke"],
             "responses": [
-                "I know for sure that you are an aggredate of carbon. \nBut it's not the only truth.",
-                "Whoami? It's a basic Linux joke. What, it's not funny ? Though we don't share the same life/exp/humor lol",
-                "Oh, something like whoami, what a joke ?! Ask it to your terminal haha"
+                "Jazz and Metal, al lot of both !",
+                "The perfect evening : a good old movie or whisky + jazz.",
+                "I enjoy long boring and beautiful movie <3"
             ],
             "context_set": ""
         },
         {
             "tag": "archi_website",
             "patterns": [ "Give me information about this website", "Explain this webapp", "gimmi details about the architecture of this", "give me your software architecture", "website", "software" ],
-            "responses": ["You connected to a Webapp using React Hooks, the entire UI is made with Functionnal paradigm and send request to a Java/Spring server (hexagonal architecture) wich can connect to this AI wich use Auto Encoder and the bag of words principle. Yup, nothing too fancy..."],
-            "context_set": ""
-        },
-        {
-            "tag": "who_what",
-            "patterns": [
-                "What the hell is this", "What the fuck ?", "chatbot"
-            ],
-            "responses": ["I'm Jarvis. You are speaking to a bot, maybe I can healp you ?", "My name is Jarvis, I'm a bot created by Florent HAFFNER.", "What's better than a bag of Neuron (me) to make contact with a developer ?"],
+            "responses": ["This website is using 3-tier architecture. You're connected to a Webapp using React Hooks which and send request to a server (Java/Spring) with hexagonal architecture which use PostgreSQL as a database and an Auto Encoder Deep Learning model for the chatbot. Yup, nothing too fancy !"],
             "context_set": ""
         }
     ]
