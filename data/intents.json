@@ -2,7 +2,7 @@
     "intents": [
         {
             "tag": "greetings",
-            "patterns": [ "automatic_greetings" ],
+            "patterns": [ "automatic greetings" ],
             "responses": [
                 "Welcome on this chatbot, which is in beta release and designed by Florent HAFFNER. It can have a short conversation in English : you can ask for help, tell it why you need a developer or ask stuff about culture, philosophy or the architecture used for this entire software ;)"
             ],
