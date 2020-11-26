@@ -135,11 +135,11 @@ def chat(message):
                 if tg['tag'] == tag:
                     responses = tg['responses']
             response_object['messageResponse'] = random.choice(responses)
-            response_object['chatbot_revision'] = 0.5
+            response_object['chatbotRevision'] = 0.5
             return response_object
 
         else:
             response_object['messageResponse'] = "I didn't get that, try again."
-            response_object['chatbot_revision'] = 0.5
+            response_object['chatbotRevision'] = 0.5
             response_object['inError'] = True
             return response_object
