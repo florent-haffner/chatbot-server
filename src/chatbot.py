@@ -123,6 +123,7 @@ def chat(message):
     response_object = { 
         'messageResponse': '', 
         'inError': False, 
+        'userId': 1,
         'chatbotRevision': 0.5
     }
 
